@@ -94,7 +94,7 @@ if __name__ == '__main__':
     
     raw_store_names = []
     page_token = None
-    query = "'1HIVHpNmOQAw5Dx8HQ4CbUb34bqNDgUWA' in parents and (trashed = false) and (mimeType = 'application/vnd.google-apps.spreadsheet') "
+    query = "'1HIVHpNmOQAw5*********' in parents and (trashed = false) and (mimeType = 'application/vnd.google-apps.spreadsheet') "
     while True:
         response = drive_service.files().list(q = query , 
                                               spaces = 'drive', 
@@ -192,7 +192,7 @@ if __name__ == '__main__':
     print("Creating a copy of the 'Master Invoices and Receipts' folder:")
     masterChildren = []
     page_token = None
-    query = "'1HIVHpNmOQAw5Dx8HQ4CbUb34bqNDgUWA' in parents and (trashed = false) and (mimeType = 'application/vnd.google-apps.spreadsheet') "
+    query = "'1HIVHpNmOQAw5D***********' in parents and (trashed = false) and (mimeType = 'application/vnd.google-apps.spreadsheet') "
     while True:
         response = drive_service.files().list(q = query , 
                                               spaces = 'drive', 
@@ -209,7 +209,7 @@ if __name__ == '__main__':
     file_metadata = {
          'name' : parentFolderName,
          'mimeType' : 'application/vnd.google-apps.folder',
-         'parents' : ['1V7wIo1KZTSCIZeUCxfZ6YCOrggECIptU'] 
+         'parents' : ['1V7wIo1KZT************'] 
     } #Note that 'parents' is the Restaurants Invoice and Receipt folder id
     
     newMonthFile = drive_service.files().create(body = file_metadata, fields='id').execute()
@@ -231,7 +231,7 @@ if __name__ == '__main__':
     
     
     #(2) Finding Parent Folder ID
-    query = "name = '"+ parentFolderName + "'and (trashed = false) and ('1V7wIo1KZTSCIZeUCxfZ6YCOrggECIptU' in parents)"
+    query = "name = '"+ parentFolderName + "'and (trashed = false) and ('1V7IZe*********' in parents)"
     parentFolderID = None
     page_token = None
     while True:
